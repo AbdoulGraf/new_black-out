@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title> Escape Rooms in Dubai | Black Out</title>
+
+        <link href="../../css/bootstrap.css" rel="stylesheet">
+        <link href="../../css/style.css" rel="stylesheet">
+
+        <link href="../../css/responsive.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="../../images/logoPart/favicon.png"
+            type="image/x-icon">
+        <link rel="icon" href="../../images/logoPart/favicon.png"
+            type="image/x-icon">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <link rel="stylesheet" href="../../css/outcss/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/outcss/css/animate.min.css">
+        <link rel="stylesheet" href="../../css/outcss/css/magnific-popup.css">
+        <link rel="stylesheet"
+            href="../../css/outcss/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="../../css/outcss/css/odometer.css">
+        <link rel="stylesheet" href="../../css/outcss/css/aos.css">
+        <link rel="stylesheet" href="../../css/outcss/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="../../css/outcss/css/meanmenu.css">
+        <link rel="stylesheet" href="../../css/outcss/css/slick.css">
+        <link rel="stylesheet" href="../../css/outcss/css/default.css">
+        <link rel="stylesheet" href="../../css/outcss/css/style.css">
+        <link rel="stylesheet" href="../../css/outcss/css/responsive.css">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+        <!-- modal openeing -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  // Toggle display of photos and videos
+                  document.getElementById('showPhotos').addEventListener('click', function() {
+                    document.getElementById('imageGallery').style.display = 'flex';
+                    document.getElementById('videoGallery').style.display = 'none';
+                  });
+                
+                  document.getElementById('showVideos').addEventListener('click', function() {
+                    document.getElementById('imageGallery').style.display = 'none';
+                    document.getElementById('videoGallery').style.display = 'flex';
+                  });
+                
+                  // Click event for gallery items (images)
+                  document.querySelectorAll('#imageGallery .gallery-item').forEach(function(item) {
+                    item.addEventListener('click', function() {
+                      const content = `<img src="${this.getAttribute('src')}" class="img-fluid" style="max-height: 80vh;">`;
+                      showModal(content);
+                    });
+                  });
+                
+                  // Click event for video items
+                  document.querySelectorAll('.video-item iframe').forEach(function(item) {
+                    item.addEventListener('click', function(event) {
+                      event.stopPropagation(); // Prevent triggering the click on the .video-item container
+                      const src = this.getAttribute('src').split('?')[0] + "?autoplay=1"; // Ensure autoplay starts
+                      const content = `<iframe src="${src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 500px; border-radius: 15px;"></iframe>`;
+                      showModal(content);
+                    });
+                  });
+                
+                  // Function to show modal with provided content
+                  function showModal(content) {
+                    document.querySelector('#imageModal .modal-body').innerHTML = content;
+                    var myModal = new bootstrap.Modal(document.getElementById('imageModal'), {
+                      keyboard: true
+                    });
+                    myModal.show();
+                  }
+                
+                  // Clear modal content on close to stop any video playback
+                  document.getElementById('imageModal').addEventListener('hidden.bs.modal', function () {
+                    document.querySelector('#imageModal .modal-body').innerHTML = '';
+                  });
+                });
+                </script>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videoWrappers = document.querySelectorAll('.videoWrapper');
+      const modalBody = document.querySelector('#imageModal .modal-body');
+      let currentIndex = 0; // Track the current video index
+    
+      function updateModalContent(index) {
+        const src = videoWrappers[index].querySelector('iframe').src;
+        const newSrc = src.split('?')[0] + "?autoplay=1"; // Ensure autoplay
+        const iframe = `<iframe src="${newSrc}" width="100%" height="500" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 15px;"></iframe>`;
+        modalBody.innerHTML = iframe;
+      }
+    
+      videoWrappers.forEach((wrapper, index) => {
+        wrapper.querySelector('.videoOverlay').addEventListener('click', function() {
+          currentIndex = index; // Update current index to clicked video
+          updateModalContent(currentIndex);
+          $('#imageModal').modal('show'); // Bootstrap 5 syntax to show modal
+        });
+      });
+    
+      // Next and Previous buttons
+      document.getElementById('nextImage').addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % videoWrappers.length; // Cycle to next
+        updateModalContent(currentIndex);
+      });
+    
+      document.getElementById('prevImage').addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + videoWrappers.length) % videoWrappers.length; // Cycle to previous
+        updateModalContent(currentIndex);
+      });
+    
+      // Clear modal content on close to ensure videos stop playing
+      $('#imageModal').on('hidden.bs.modal', function () {
+        modalBody.innerHTML = ''; // Clear the content
+      });
+    });
+    </script>
+
+        <!-- endOfModal -->
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var showPhotos = document.getElementById('showPhotos');
+                var showVideos = document.getElementById('showVideos');
+                var photosContainer = document.getElementById('photosContainer');
+                var videosContainer = document.getElementById('videosContainer');
+            
+                showPhotos.addEventListener('click', function() {
+                    photosContainer.style.display = 'flex';
+                    videosContainer.style.display = 'none';
+                });
+            
+                showVideos.addEventListener('click', function() {
+                    videosContainer.style.display = 'flex';
+                    photosContainer.style.display = 'none';
+                });
+            });
+            
+                  </script>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const today = new Date().toISOString().split('T')[0];
+            // Set the input field value to today's date
+document.getElementById('datepicker').value = today;
+flatpickr("#datepicker", {
+    // Options here
+});
+});
+
+
+flatpickr("#datepicker", {
+dateFormat: "Y-m-d",
+});
+
+
+    </script>
+
+        <!-- FOR DATA DİSPLAY -->
+        <script>
+           
+          
+           document.addEventListener('DOMContentLoaded', function() {
+const persons = {
+    1: [
+        { time: "11:30-12:30", price: "AED 220.00" },
+        { time: "12:30-13:30", price: "AED 220.00" },
+        { time: "13:30-14:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+        { time: "14:30-15:30", price: "AED 220.00" },
+    ],
+
+    2: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" },
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" },
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        
+    ],
+
+    3: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    4: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    5: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    6: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    7: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    8: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    9: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+
+    10: [
+        { time: "10:30-12:30", price: "AED 230.00" },
+        { time: "12:30-13:30", price: "AED 230.00" },
+        { time: "14:30-14:30", price: "AED 250.00" },
+        { time: "14:30-15:30", price: "AED 230.00" }
+    ],
+    // Define other numbers as needed
+};
+
+function updateBoxes(number) {
+    const boxesContainer = document.querySelector('.boxes-container');
+    boxesContainer.innerHTML = ''; // Clear existing boxes first
+    const dataArray = persons[number];
+
+    dataArray.forEach(data => {
+        const boxHTML = `
+            <div class="box">
+                <a href="../reservation.html">
+                    <div class="box-content">
+                        <span class="time">${data.time}</span>
+                        <div style="display: grid; color: #99999c;">
+                            <span class="price">${data.price}</span>
+                            <span>per person</span>
+                        </div>
+                    </div>
+                </a>
+            </div>`;
+        boxesContainer.insertAdjacentHTML('beforeend', boxHTML);
+    });
+}
+
+document.querySelectorAll('.number').forEach(function(element) {
+
+
+
+    element.addEventListener('click', function() {
+
+        document.querySelectorAll('.number').forEach(el => {
+        el.classList.remove('active__Number');
+    });
+
+    // Then, add 'active' class to the clicked element
+    element.classList.add('active__Number');
+
+
+        const number = this.getAttribute('data-number');
+
+
+        updateBoxes(number);
+    });
+});
+
+// Automatically display data for the first item on page load
+updateBoxes(1);
+
+});
+
+
+
+        </script>
+
+        <script>
+            function openCalendar() {
+                var datePicker = document.getElementById('datepicker');
+
+                if (datePicker.style.display === "none") {
+                    datePicker.style.display = "block";
+                } else {
+                    datePicker.style.display = "none";
+                }
+                // Trigger click on datePicker to immediately open the calendar
+                datePicker.click();
+            }
+        
+
+            function initializeCalendarWithDate(selectedDate = new Date(), isMobile = false) {
+selectedDate = new Date(selectedDate);
+console.log("Initializing calendar with date:", selectedDate.toISOString().split('T')[0]);
+
+// Adjust the start date based on whether it's mobile or not
+const offset = isMobile ? -1 : -3; // Mobile shows fewer days
+const totalDays = isMobile ? 3 : 7; // Mobile shows 3 days, desktop shows 7
+
+const startDate = new Date(selectedDate);
+startDate.setDate(selectedDate.getDate() + offset);
+
+const calendarContainerSelector = isMobile ? '.calendar__Mobile' : '.calendar__web';
+const calendarContainer = document.querySelector(calendarContainerSelector);
+calendarContainer.innerHTML = ''; // Clear existing content
+
+// Generate each day for the view
+for (let i = 0; i < totalDays; i++) {
+    const dayDate = new Date(startDate);
+    dayDate.setDate(startDate.getDate() + i);
+
+    const dayDiv = document.createElement('div');
+    dayDiv.style.cssText = "flex-grow: 1; text-align: center;";
+    if ((isMobile && i === 1) || (!isMobile && i === 3)) {
+        // Apply special styling for the selected/middle day
+        dayDiv.innerHTML = `<span><img src="../../images/logoPart/favicon.png" alt="" style="max-width: 40px;"></span>`;
+        dayDiv.style.color = "#950004"; // Highlight color
+    } else {
+        dayDiv.style.borderBottom = "2px solid #ffff";
+    }
+
+    const dayName = dayDate.toLocaleString('en-US', {weekday: 'long'});
+    const monthName = dayDate.toLocaleString('en-US', {month: 'short'});
+    const dayNumber = dayDate.getDate();
+
+    let innerHTML = `<span style="color: ${(isMobile && i === 1) || (!isMobile && i === 3) ? '#950004' : '#ffff'}; margin-bottom: 6px; display: block;">${dayName}</span>`;
+    innerHTML += `<span style="font-weight: 700; font-size: 45px; color: ${(isMobile && i === 1) || (!isMobile && i === 3) ? '#950004' : 'white'};">${dayNumber}</span><br>`;
+    innerHTML += `<span style="color: ${(isMobile && i === 1) || (!isMobile && i === 3) ? '#950004' : '#ffff'};">${monthName}</span>`;
+
+    dayDiv.innerHTML += innerHTML;
+    calendarContainer.appendChild(dayDiv);
+}
+}
+
+// Adapt dateChanged function for mobile
+function dateChanged(input, isMobile = false) {
+if (input.value) {
+    initializeCalendarWithDate(input.value, false); // For desktop
+initializeCalendarWithDate(input.value, true); // For mobile
+}
+}
+
+// Initialize for both desktop and mobile on page load
+document.addEventListener('DOMContentLoaded', function() {
+initializeCalendarWithDate(new Date(), false); // For desktop
+initializeCalendarWithDate(new Date(), true); // For mobile
+});
+
+
+
+
+
+        
+        </script>
+
+        <style>
+
+
+.active__Number {
+background-color: #191919 !important; /* Change to red when active */
+border: 3px solid #950004 !important;
+}
+
+/* 
+#datePicker {
+background-color: #191919;
+color: #fff;
+border: 1px solid  #3a3a3a;
+border-radius: 4px;
+padding: 5px;
+} */
+
+
+/* Base styles */
+.boxes-container {
+display: flex;
+flex-wrap: wrap;
+/* justify-content: space-between; */
+gap: 20px; /* Reduced gap for smaller boxes */
+margin-top: 8px;
+}
+
+.box {
+flex-basis: 45%; /* Smaller width for mobile - adjusts for 2 in a row with a bit more space */
+height: 150px; /* Adjusted height */
+background-color: #191919;
+border-radius: 15px;
+cursor: pointer;
+display: flex;
+align-items: center; /* Center content vertically */
+justify-content: center; /* Center content horizontally */
+padding: 10px; /* Adjusted padding for smaller box */
+border: 2px solid transparent; /* Prepare for border color change on hover */
+transition: border-color 0.3s; /
+}
+
+
+.box:hover {
+border-color: #880611; /* Change border color to red on hover */
+}
+
+.box-content {
+color: #fff;
+text-align: center; /* Center text inside the box-content */
+}
+
+.time {
+display: block;
+margin-bottom: 6px;
+}
+
+/* Large screens (lg) */
+@media (min-width: 992px) {
+.box {
+    flex-basis: 18%; /* Even smaller width for large screens to fit 5 in a row neatly */
+}
+}
+
+            @media (min-width: 992px) { /* Adjust for your project's 'lg' breakpoint */
+              .select__number_part {
+                display: contents !important;
+              }
+              .select__number_bottom {
+                display: none !important;
+              }
+
+             
+
+              
+            }
+
+            @media (min-width: 768px){
+
+                .calendar__web{
+                display: flex !important;
+                margin-top: 8px;
+              }
+
+              .calendar__Mobile{
+                display: none !important;
+              }
+
+            }
+            
+            @media (max-width: 765px){
+
+                .calendar__web{
+                display: none !important;
+              }
+
+              .calendar__Mobile{
+                display: flex !important;
+                margin-top: 50px;
+              }
+
+
+
+            }
+
+            @media (max-width: 547px){
+                .span__select{
+                    margin-bottom: 10px !important;
+                    display: block;
+                }
+
+                .red__bull_number{
+                   
+                }
+
+                .select__number_bottom {
+                display: block !important;
+               
+              }
+
+              .select__number_position{
+                display: block !important;       
+                width: 100%;
+              }
+
+              .select__number_part {
+                display: none !important;
+              }
+
+
+                
+            }
+            
+            @media (min-width: 548px) and (max-width: 992px) { /* Adjust for your project's 'lg' breakpoint */
+              .select__number_bottom {
+                display: flex !important;
+                
+              }
+
+              .select__number_position{
+                display: flex !important;
+                justify-content: space-between !important;
+                width: 100%;
+              }
+
+              .select__number_part {
+                display: none !important;
+              }
+            }
+
+
+
+          </style>
+
+    </head>
+
+    <body>
+
+        <div class="page-wrapper">
+
+            <header
+                class="main-header header-style-two mobile__main__header__back">
+                <div class="header-container">
+
+                    <div class="header-top mobile__top__header">
+                        <div class="auto-container">
+                            <div class="inner clearfix">
+                                <div class="top-left"
+                                    style="visibility: hidden;">
+
+                                    <div class="top-text">Welcome to game
+                                        developement studio</div>
+
+                                </div>
+
+                                <div class="top-right">
+                                    <ul class="info clearfix">
+                                        <li>
+
+                                            <img
+                                                src="../../images/logoPart/phone-icon.webp"
+                                                alt style="max-width: 29px;">
+                                            <a href="tel:666-888-0000">+971 052
+                                                111 1041</a></li>
+                                        <li>
+                                            <img
+                                                src="../../images/logoPart/mail_icon.webp"
+                                                alt style="max-width: 29px;">
+                                            &nbsp;
+                                            <a
+                                                href>info.dxb@black-out.ae</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header-upper">
+                        <div class="auto-container">
+                            <div class="inner-container clearfix">
+
+                                <div class="logo-box mobile__logo__move">
+                                    <div class="logo"><a href="../../index.html"
+                                            title="Escape Rooms in Dubai | Black-Out"><img
+                                                src="../../images/newImages/newImage1.webp"
+                                                alt="Escape Rooms in Dubai | Black-Out"
+                                                title="Escape Rooms in Dubai | Black-Out"
+                                                style="max-width: 250px; margin-top: 10px;"></a></div>
+                                </div>
+
+                                <div class="nav-outer clearfix">
+
+                                    <div class="mobile-nav-toggler"
+                                        style="color: #ffff;"><span
+                                            class="icon flaticon-menu-2"></span></div>
+
+                                    <nav
+                                        class="main-menu navbar-expand-md navbar-light">
+                                        <div
+                                            class="collapse navbar-collapse show clearfix"
+                                            id="navbarSupportedContent">
+                                            <ul class="navigation clearfix">
+                                                <li class="current "><a
+                                                        href="../index.html">HOME</a>
+
+                                                </li>
+
+                                                <li class="dropdown"><a
+                                                        href="index.html">BOOK
+                                                        NOW</a>
+
+                                                    <ul>
+
+                                                        <li class><a
+                                                                href="psychiatric.html">
+                                                                Psychiatric
+                                                            </a>
+
+                                                        </li>
+                                                        <li class><a
+                                                                href="exorcism.html">
+                                                                Exorcism
+                                                            </a>
+
+                                                        </li>
+
+                                                        <li class><a
+                                                                href="torture.html">
+                                                                Torture
+                                                            </a></li>
+
+                                                        <li class><a
+                                                                href="chaos.html">
+                                                                Chaos
+                                                            </a></li>
+
+                                                    </ul>
+                                                </li>
+
+                                                <li class="dropdown"><a
+                                                        href="#">CORPORATE</a>
+                                                    <ul>
+                                                        <li><a
+                                                                href="../faq.html">Faq</a></li>
+                                                        <li><a
+                                                                href="../terms-conditions.html">Terms
+                                                                &
+                                                                Conditions</a></li>
+
+                                                        <li><a
+                                                                href="../disclaimer-and-liability.html">
+                                                                Disclaimers &
+                                                                Liability</a></li>
+
+                                                        <li><a
+                                                                href="../privacy-policy.html">
+                                                                Privacy
+                                                                Policy</a></li>
+
+                                                        <li><a
+                                                                href="../team-building.html">
+                                                                Team
+                                                                Building</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li><a
+                                                        href="../video-order.html">REQUEST
+                                                        VIDEO</a></li>
+
+                                                <li><a
+                                                        href="../franchise.html">FRANCHISE</a></li>
+
+                                                <li class><a
+                                                        href="../blog.html">BLOG</a>
+
+                                                </li>
+                                                <li><a
+                                                        href="../contact.html">CONTACT</a></li>
+
+                                                <li class="redButtonNav">
+
+                                                    <a
+                                                        href="../../abudhabi/index.html"
+                                                        class="theme-btn btn-style-one"
+                                                        style><span
+                                                            class="btn-title"
+                                                            style="background: #910613; padding: 5px 20px;">
+                                                            Abudhabi</span></a>
+
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </nav>
+
+                                    <ul class="social-links clearfix">
+                                        <li><a href="#"><span
+                                                    class="fab fa-twitter"></span></a></li>
+                                        <li><a href="#"><span
+                                                    class="fab fa-facebook-square"></span></a></li>
+                                        <li><a href="#"><span
+                                                    class="fab fa-linkedin-in"></span></a></li>
+                                        <li><a href="#"><span
+                                                    class="fab fa-pinterest-p"></span></a></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sticky-header">
+                    <div class="auto-container clearfix">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <div class="logo pull-left">
+                                <a href="../index.html" title><img
+                                        src="../../images/newImages/newImage1.webp"
+                                        alt
+                                        style="max-width: 250px; margin-top: 10px;"
+                                        title></a>
+                            </div>
+
+                            <div class="pull-right">
+
+                                <nav class="main-menu clearfix">
+
+                                </nav>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mobile-menu">
+                    <div class="menu-backdrop"></div>
+                    <div class="close-btn"><span
+                            class="icon flaticon-cancel"></span></div>
+
+                    <nav class="menu-box">
+                        <div class="nav-logo"><a href="../index.html"><img
+                                    src="../../images/newImages/newImage1.webp"
+                                    alt
+                                    title></a></div>
+                        <div
+                            class="menu-outer"></div>
+
+                        <div class="link-box"
+                            style="padding: 30px 25px 0px 25px; display: flex; gap: 10px;">
+                            <a href="../../abudhabi/index.html"
+                                class="theme-btn btn-style-one"
+                                style="padding: 0px 0px !important;"><span
+                                    class="btn-title"
+                                    style="background: #910613; padding: 9px 20px;">
+                                    Abudhabi</span></a>
+                            <p style="font-size: 14px;"> Explore Abudhabi
+                                Rooms.</p>
+                        </div>
+
+                        <div class="social-links"
+                            style>
+
+                            <ul class="clearfix">
+                                <li><a href="#"><span
+                                            class="fab fa-twitter"></span></a></li>
+                                <li><a href="#"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                                <li><a href="#"><span
+                                            class="fab fa-pinterest-p"></span></a></li>
+                                <li><a href="#"><span
+                                            class="fab fa-instagram"></span></a></li>
+                                <li><a href="#"><span
+                                            class="fab fa-youtube"></span></a></li>
+                            </ul>
+
+                        </div>
+
+                    </nav>
+                </div>
+
+            </header>
+
+            <!-- Banner Section -->
+            <section class="banner-section"
+                style="padding-left: 0px !important; padding-right: 0px !important;">
+
+                <div class="banner-carousel owl-theme owl-carousel">
+                    <!-- Slide Item -->
+                    <div class="slide-item">
+                        <div class="image-layer"
+                            style="background-image:url(../../images/newThumbnails/Torture.webp)"></div>
+
+                        <div class="auto-container" style="max-width: 1500px;">
+                            <div class="content-box"
+                                style="height: 500px !important;">
+                                <div class="content"
+                                    style="vertical-align: bottom !important;">
+                                    <h2 class="glitch">TORTURE</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal Structure -->
+            <div class="modal fade"
+                id="imageModal" tabindex="-1"
+                aria-labelledby="imageModalLabel"
+                aria-hidden="true">
+                <div
+                    class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content"
+                        style="background-color: #0a0a14;">
+                        <div
+                            class="modal-header border-0">
+                            <button
+                                type="button"
+                                class="btn-close btn-close-white"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div
+                            class="modal-body d-flex justify-content-center align-items-center"
+                            style="position: relative;">
+                            <img id="modalImage"
+                                src
+                                class="img-fluid"
+                                style="border-radius: 15px; max-height: 80vh;">
+                            <a id="prevImage"
+                                class="position-absolute"
+                                style="left: 0; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                <i
+                                    class="bi bi-chevron-left"
+                                    style="color: white; font-size: 2rem;"></i>
+                            </a>
+                            <a id="nextImage"
+                                class="position-absolute"
+                                style="right: 0; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                <i
+                                    class="bi bi-chevron-right"
+                                    style="color: white; font-size: 2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Reviews Section-->
+            <section class="about-section"
+                style="background: #910613 ; padding-bottom: 100px; padding-top: 50px;">
+
+                <div class="top-pattern-layer"
+                    style="background: url(../../images/newImages/layers/pattern.png); top: -72px;"></div>
+
+                <!-- <div class="top-pattern-layer-dark" style="top: -72px;"></div>
+              <div class="bottom-pattern-layer-dark"></div> -->
+
+                <div class="auto-container">
+
+                    <!-- <div class="sec-title"><h2> Players Reviews  </h2><span
+                          class="bottom-curve"></span></div> -->
+
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div
+                                class="section-title title-style-three white-title"
+                                style="text-align: center;">
+                                <h2>
+                                    <span
+                                        style="color: #0f0f0f ;">STORYLINE</span></h2>
+                                <p style="font-size: 20px;"> Get ready to
+                                    experience our exorcism escape room!</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="slide-item">
+                                <div class="inner">
+                                    <div class="text">
+                                        <p
+                                            style="text-align: center; font-size: 20px;">
+                                            This is due to their
+                                            excellent service competitive
+                                            pricing
+                                            and customer support. It’s throughly
+                                            refresing to get such a personal
+                                            touch.
+                                            There are many variations of
+                                            passages of
+                                            available, but the majority have
+                                            suffered alteration in some form by
+                                            injected humour.
+                                            This is due to their
+                                            excellent service competitive
+                                            pricing
+                                            and customer support. It’s throughly
+                                            refresing to get such a personal
+                                            touch.
+                                            There are many variations of
+                                            passages of
+                                            available, but the majority have
+                                            suffered alteration in some form by
+                                            injected humour.
+                                            This is due to their
+                                            excellent service competitive
+                                            pricing
+                                            and customer support. It’s throughly
+                                            refresing to get such a personal
+                                            touch.
+                                            There are many variations of
+                                            passages of
+                                            available, but the majority have
+                                            suffered alteration in some form by
+                                            injected humour.
+                                        </p>
+
+                                        <div class="row mt-5">
+
+                                            <div class="col-lg-4 col-md-12">
+                                                <p
+                                                    style="text-align: center; font-size: 20px;">
+                                                    What happened during
+                                                    possession?
+                                                </p>
+
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-12">
+                                                <p
+                                                    style="text-align: center; font-size: 20px;">
+                                                    What happened to the Priest?
+                                                </p>
+
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-12">
+
+                                                <p
+                                                    style="text-align: center; font-size: 20px;">
+                                                    What happened to children?
+                                                    Find Out!
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="about-section"
+                style="background: #070711; padding-left: 20px; padding-right: 20px; ">
+
+                <div class="top-pattern-layer rooms__box"
+                    style="background: url(../../images/newImages/layers/pattern-black-up.webp);"></div>
+
+                <div
+                    class="bottom-pattern-layer-dark-allblack rooms__bottom_box"
+                    style="background: url(../../images/newImages/layers/pattern-black-bottom.webp); bottom: -73px;"></div>
+
+                <div class="about-content">
+                    <div class="auto-container">
+                        <div class="row clearfix" style="margin-top: -30px;">
+
+                            <div class="col-12"
+                                style="display: flex; justify-content: space-between;">
+
+                                <div>
+
+                                    <div>
+                                        <h3>TORTURE</h3>
+                                        <span>
+                                            With live Actor
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <!-- //people to play with -->
+                                <div
+                                    class="select__number_part d-sm-none d-md-none d-lg-none"
+                                    style="align-self: center; display: contents;">
+                                    <span style="color: #ffff;">Select number of
+                                        players:</span>
+
+                                    <div style="display: flex; gap: 25px;">
+
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number active__Number"
+                                            data-number="1">1</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="2">2</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="3">3</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="4">4</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="5">5</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="6">6</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="7">7</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="8">8</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="9">9</div>
+                                        <!-- Repeat the div for numbers 2 to 10 -->
+                                        <div
+                                            style="width: 40px; height: 40px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;"
+                                            class="number"
+                                            data-number="10">10</div>
+
+                                    </div>
+
+                                </div>
+
+                                <div>
+                                    <div
+                                        style="display: flex; gap: 8px; cursor: pointer; justify-content: end; ">
+                                        <h5 style="font-size: 25px;">2024 </h5>
+
+                                        <i class="fa-solid fa-calendar-days"
+                                            style="color: #ffff; font-size: 25px; "
+                                            onclick="openCalendar()"></i>
+
+                                    </div>
+
+                                    <input type="text" id="datepicker"
+                                        style="display: none;"
+                                        onchange="dateChanged(this)" />
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="col-12 d-lg-none d-xl-none d-sm-none d-md-none  select__number_bottom w-full mt-5">
+
+                                <div class="w-full select__number_position"
+                                    style="align-self: center;">
+                                    <span class="span__select"
+                                        style="color: #ffff;">Select number of
+                                        players:</span>
+
+                                    <div class="red__bull_number"
+                                        style="display: flex; gap: 2px;">
+                                        <div class="number active__Number"
+                                            data-number="1"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">1</div>
+
+                                        <div class="number" data-number="2"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">2</div>
+
+                                        <div class="number" data-number="3"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">3</div>
+
+                                        <div class="number" data-number="4"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">4</div>
+
+                                        <div class="number" data-number="5"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">5</div>
+
+                                        <div class="number" data-number="6"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">6</div>
+
+                                        <div class="number" data-number="7"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">7</div>
+
+                                        <div class="number" data-number="8"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">8</div>
+
+                                        <div class="number" data-number="9"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">9</div>
+
+                                        <div class="number" data-number="10"
+                                            style="width: 30px; height: 30px; background-color: #950004; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer;">10</div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 mt-4">
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-12 col-sm-12">
+
+                                        <div class="row "
+                                            style="display: flex; flex-direction: row; justify-content: space-between; gap: 25px; height: 100%;">
+
+                                            <div class="col-12">
+
+                                                <div
+                                                    class="featured-game-item  image_Item">
+
+                                                    <div
+                                                        class="featured-game-thumb">
+                                                        <img
+                                                            src="../../images/newPosters/Torture.webp"
+                                                            alt
+                                                            style="border-radius: 10px;">
+
+                                                    </div>
+
+                                                    <div
+                                                        class="featured-game-content game__content_item">
+
+                                                        <div
+                                                            class="featured-game-meta"
+                                                            style="width: 100%; font-size: 20px; font-weight: 900;">
+                                                            <i
+                                                                class="fas fa-clock"></i>
+                                                            <span
+                                                                style="font-weight: 300;">60
+                                                                Mins</span>
+                                                            &nbsp;
+                                                            &nbsp;
+
+                                                            <i
+                                                                class="fas fa-hammer"></i>
+                                                            <span
+                                                                style="font-weight: 300;">
+                                                                Hard
+                                                            </span>
+                                                            &nbsp;
+                                                            &nbsp;
+
+                                                            <i
+                                                                class="fas fa-running"></i>
+                                                            <span
+                                                                style="font-weight: 300;">
+                                                                2- 10
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-12"
+                                                style="align-items: end; display: flex;">
+
+                                                <h2 class
+                                                    style="color: #910613; font-weight: 800; font-size: 30px;">
+                                                    <span id="showPhotos"
+                                                        style="cursor: pointer;"
+                                                        class="glitch">PHOTO</span>
+                                                    / <span
+                                                        id="showVideos"
+                                                        style="color: #fff; cursor: pointer;"
+                                                        class="glitch">VIDEO</span>
+                                                </h2>
+
+                                            </div>
+
+                                            <div class="col-12">
+
+                                                <div class="row"
+                                                    id="imageGallery"
+                                                    style="height: 100%;">
+                                                    <div class="col-6"
+                                                        style="display: flex; align-items: end;">
+                                                        <img
+                                                            src="../../images/blog/blog_imaage_1.webp"
+                                                            alt="Image 1"
+                                                            class="img-fluid gallery-item"
+                                                            style="border-radius: 15px; cursor: pointer; margin-bottom: 10px; height: -webkit-fill-available ;">
+                                                    </div>
+                                                    <div class="col-6"
+                                                        style="display: flex; align-items: end;">
+                                                        <img
+                                                            src="../../images/blog/blog_imaage_2.webp"
+                                                            alt="Image 2"
+                                                            class="img-fluid gallery-item"
+                                                            style="border-radius: 15px; cursor: pointer; margin-bottom: 10px; height: -webkit-fill-available ;">
+                                                    </div>
+                                                    <!-- Repeat for other images -->
+                                                    <div class="col-6"
+                                                        style="display: flex; align-items: end;">
+                                                        <img
+                                                            src="../../images/blog/blog_imaage_3.webp"
+                                                            alt="Image 2"
+                                                            class="img-fluid gallery-item"
+                                                            style="border-radius: 15px; cursor: pointer; margin-bottom: 0px; height: -webkit-fill-available ; ">
+                                                    </div>
+
+                                                    <div class="col-6"
+                                                        style="display: flex; align-items: end;">
+                                                        <img
+                                                            src="../../images/blog/blog_imaage_1.webp"
+                                                            alt="Image 2"
+                                                            class="img-fluid gallery-item"
+                                                            style="border-radius: 15px; cursor: pointer; margin-bottom: 0px; height: -webkit-fill-available ;">
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"
+                                                    id="videoGallery"
+                                                    style="display: none; height: 100%;">
+                                                    <!-- Video Item -->
+
+                                                    <div
+                                                        class="col-6 videoWrapper"
+                                                        style="display: flex; align-items: end;">
+                                                        <div
+                                                            class="videoOverlay"
+                                                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; cursor: pointer;"></div>
+                                                        <iframe
+                                                            class="img-fluid gallery-item video-item"
+                                                            style="border-radius: 15px; cursor: pointer; height: 108px ; width: 158px; margin-bottom: 0px; "
+                                                            src="https://www.youtube.com/embed/BYysLg8Hzlo"
+                                                            title="YouTube video player"
+                                                            frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-6 videoWrapper"
+                                                        style="display: flex; align-items: end;">
+                                                        <div
+                                                            class="videoOverlay"
+                                                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; cursor: pointer;"></div>
+                                                        <iframe
+                                                            class="img-fluid gallery-item video-item"
+                                                            style="border-radius: 15px; cursor: pointer;height: 108px ; width: 158px; margin-bottom: 0px;"
+                                                            src="https://www.youtube.com/embed/BYysLg8Hzlo"
+                                                            title="YouTube video player"
+                                                            frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-6 videoWrapper"
+                                                        style="display: flex; align-items: end;">
+                                                        <div
+                                                            class="videoOverlay"
+                                                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; cursor: pointer;"></div>
+                                                        <iframe
+                                                            class="img-fluid gallery-item video-item"
+                                                            style="border-radius: 15px; cursor: pointer; height: 108px ; width: 158px;  margin-bottom: 0px;"
+                                                            src="https://www.youtube.com/embed/BYysLg8Hzlo"
+                                                            title="YouTube video player"
+                                                            frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-6 videoWrapper"
+                                                        style="display: flex; align-items: end;">
+                                                        <div
+                                                            class="videoOverlay"
+                                                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; cursor: pointer;"></div>
+                                                        <iframe
+                                                            class="img-fluid gallery-item video-item"
+                                                            style="border-radius: 15px; cursor: pointer; height: 108px ; width: 158px; margin-bottom: 0px;"
+                                                            src="https://www.youtube.com/embed/BYysLg8Hzlo"
+                                                            title="YouTube video player"
+                                                            frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div
+                                        class="col-lg-9 col-sm-12 col-md-12 mt-md-5"
+                                        style="display: flex; flex-direction: column;">
+                                        <div class="mb-4 calendar__web"
+                                            style="display: flex; justify-content: space-around; text-align: center;">
+                                            <!-- Dynamic day divs will be inserted here -->
+                                        </div>
+
+                                        <!-- on mobile -->
+                                        <div class="mb-4 calendar__Mobile"
+                                            style="display: flex; justify-content: space-around; text-align: center;">
+
+                                        </div>
+
+                                        <!-- new small box -->
+
+                                        <div class="boxes-container">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- photo and video -->
+            <!-- photo and video -->
+
+            <section class="faq-section"
+                style=" padding-bottom: 100px; padding-top: 0px;">
+
+                <!-- bottom for pattern -->
+                <div class="bottom-pattern-layer-dark-allblack"
+                    style="background: url(../../images/newImages/layers/pattern-black-bottom.webp); bottom: -73px;"></div>
+
+                <div class="featured-game-bg">
+
+                    <video autoplay loop muted playsinline
+                        style="height: 100%;">
+                        <source src="../../images/newVideo/escape/4.mp4"
+                            type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="sec-title centered">
+
+                        <div class="reviews-section" style="background: none;">
+
+                            <div class="auto-container">
+
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <div
+                                            class="section-title title-style-three white-title">
+                                            <h2 style="text-align: left;">
+                                                <span>TESTIMONIALS</span></h2>
+                                            <p
+                                                style="font-size: 20px; text-align: left;">
+                                                Your Comments are
+                                                important to us</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div
+                                    class="testimonial-slider carousel-outer clearfix"
+                                    style="margin-bottom: 75px;">
+
+                                    <div class="thumb-carousel-box">
+                                        <ul
+                                            class="thumb-carousel owl-carousel owl-theme">
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-1.jpg"
+                                                    alt></li>
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-2.jpg"
+                                                    alt></li>
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-3.jpg"
+                                                    alt></li>
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-1.jpg"
+                                                    alt></li>
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-2.jpg"
+                                                    alt></li>
+                                            <li class="thumb"><img
+                                                    src="../../images/resource/rev-thumb-3.jpg"
+                                                    alt></li>
+                                        </ul>
+                                    </div>
+
+                                    <div
+                                        class="text-carousel owl-carousel owl-theme">
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Jessica
+                                                        brown</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Kevin
+                                                        Smith</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Christine
+                                                        eve</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Jessica
+                                                        brown</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Kevin
+                                                        Smith</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="slide-item">
+                                            <div class="inner">
+                                                <div class="text"
+                                                    style="color: #fff;">This is
+                                                    due to their
+                                                    excellent service
+                                                    competitive pricing
+                                                    and customer support. It’s
+                                                    throughly
+                                                    refresing to get such a
+                                                    personal touch.
+                                                    There are many variations of
+                                                    passages of
+                                                    available, but the majority
+                                                    have
+                                                    suffered alteration in some
+                                                    form by
+                                                    injected humour.</div>
+                                                <div class="info clearfix"><span
+                                                        class="name">Christine
+                                                        eve</span>
+                                                    &ensp;-&ensp; <span
+                                                        class="date">25 may,
+                                                        2019</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="auto-container"
+                            style="margin-bottom: 50px; margin-top: 100px;">
+
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div
+                                        class="section-title title-style-three white-title"
+                                        style="text-align: center;">
+                                        <h2 style="color: #910611;"
+                                            class="glitch">FAQ
+                                            <span></span></h2>
+                                        <p
+                                            style="color: #cccccc; font-size: 20px;">
+                                            Answers to Common Questions... </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="faq-container">
+                                <div class="accordion-box">
+
+                                    <div
+                                        class="accordion block current wow fadeInUp"
+                                        data-wow-delay="0ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn active">Who Can Play
+                                            This
+                                            Game? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">You
+                                                    can play
+                                                    this game
+                                                    together with your family
+                                                    members or
+                                                    colleagues from work or play
+                                                    it as a
+                                                    corporate game and have fun
+                                                    with
+                                                    them for one hour.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="100ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn">How to beat team
+                                            based
+                                            shooters? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">Lorem
+                                                    Ipsum is
+                                                    simply
+                                                    dummy text of the printing
+                                                    and
+                                                    typesetting industry. Lorem
+                                                    Ipsum
+                                                    has been the industry's
+                                                    standard
+                                                    dummy text ever since the
+                                                    1500s,
+                                                    when an unknown printer took
+                                                    a
+                                                    galley of type and scrambled
+                                                    it to
+                                                    make a type specimen book.
+                                                    It has
+                                                    survived not only five
+                                                    centuries.
+                                                    There are many variations of
+                                                    passages of Lorem Ipsum
+                                                    available,
+                                                    but the majority have
+                                                    suffered
+                                                    alteration in some form by
+                                                    injected
+                                                    humour.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> Is It Scary? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">The
+                                                    products
+                                                    of the
+                                                    Black-Out are the most
+                                                    scariest
+                                                    Escape Games in the Middle
+                                                    East but
+                                                    in case of request level can
+                                                    be set.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="300ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> How Long Does The
+                                            Whole
+                                            Experience Take? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content"
+                                                style="color: #ffff;">
+                                                <div class="text">You must
+                                                    puzzle your
+                                                    way to the intriguing
+                                                    conclusion and
+                                                    escape the room in 60
+                                                    minutes.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="400ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> How Difficult Is
+                                            The Game?
+                                            <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">The
+                                                    games
+                                                    designed to
+                                                    be completed in 60 minutes
+                                                    by
+                                                    concentration and solving
+                                                    puzzles.
+                                                    You do not need any special
+                                                    talent
+                                                    other than using your brain
+                                                    and
+                                                    acting fast. Remember that
+                                                    you can
+                                                    request a hint! This,
+                                                    however, does
+                                                    not necessarily mean that
+                                                    everybody
+                                                    can finish the game! .</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="400ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> Do We Have To Wear
+                                            Special
+                                            Costumes To Play The Game? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">No.
+                                                    However,
+                                                    we
+                                                    recommend that you bring the
+                                                    least
+                                                    amount of belongings and
+                                                    accessories
+                                                    possible with you in order
+                                                    to move
+                                                    comfortably and fast during
+                                                    the
+                                                    game.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="400ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> Will It Be Safe
+                                            During The
+                                            Game? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">Yes.
+                                                    Although
+                                                    all of
+                                                    our games is based on the
+                                                    concept of
+                                                    Fear, you will not come
+                                                    across with
+                                                    creatures such as those you
+                                                    would
+                                                    see in a fear tunnel. In
+                                                    addition,
+                                                    there will be real time
+                                                    monitoring
+                                                    in all of the rooms in the
+                                                    house.
+                                                    You can end the game
+                                                    whenever you
+                                                    want and leave the
+                                                    house.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion block wow fadeInUp"
+                                        data-wow-delay="400ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="acc-btn"> How Much Is An
+                                            Escape Room
+                                            In Dubai Al Quoz? <div
+                                                class="icon flaticon-cross"></div></div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <div class="text"
+                                                    style="color: #ffff;">The
+                                                    cost of an
+                                                    escape
+                                                    room in Dubai varies
+                                                    depending on
+                                                    the type, duration and size
+                                                    of the
+                                                    game. Generally speaking,
+                                                    expect to
+                                                    pay between AED 160-200 per
+                                                    person
+                                                    for a one hour game. More
+                                                    complex
+                                                    games may require a longer
+                                                    time
+                                                    limit or additional players
+                                                    which could increase the
+                                                    total
+                                                    cost.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section class="reviews-section">
+
+                        <div class="auto-container">
+
+                            <div class="row">
+
+                                <div class="col-12">
+
+                                    <div class="slide-item">
+                                        <div class="inner">
+                                            <div class="text">
+                                                <p
+                                                    style="text-align: center; font-size: 20px; color: #910613;">
+                                                    <strong
+                                                        style="color: #cbcbcb;">Black
+                                                        Out's escape rooms are a
+                                                        unique and fun way to
+                                                        engage</strong> with
+                                                    your
+                                                    colleagues and test how well
+                                                    your team works together.
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <footer class="main-footer">
+                        <div class="top-pattern-layer-dark"
+                            style="background: url(../../images/newImages/layers/pattern-black-up.webp); top: -72px;"></div>
+
+                        <div class="auto-container">
+
+                            <div class="widgets-section">
+                                <div class="row clearfix "
+                                    style="padding-top: 100px;">
+
+                                    <div
+                                        class="column col-lg-4 col-md-6 col-sm-12">
+                                        <div class="footer-widget logo-widget">
+                                            <div class="widget-title">
+                                                <h3>Black Out</h3>
+                                            </div>
+                                            <div class="text"
+                                                style="color: #ffff;">
+                                                Lorem ipsum dolor sit
+                                                amet, consectetur adipisicing
+                                                elit.
+                                                Rerum, facere! </div>
+
+                                            <div class="newsletter-form">
+                                                <form method="post"
+                                                    action="#">
+                                                    <div
+                                                        class="form-group clearfix"
+                                                        style="width: 100%;">
+                                                        <input type="email"
+                                                            name="email"
+                                                            value
+                                                            placeholder="Email address"
+                                                            required>
+                                                        <button type="submit"
+                                                            class="theme-btn newsletter-btn"><span
+                                                                class="icon flaticon-arrows-6"></span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="column col-lg-3 col-md-6 col-sm-12">
+                                        <div class="footer-widget info-widget">
+                                            <ul class="contact-info">
+                                                <li><strong>Phone</strong>
+                                                    <br><a
+                                                        href="tel:+971 58 600 00 41">+971
+                                                        58 600 00 41 </a></li>
+                                                <li><strong>Address</strong>
+                                                    <br>
+                                                    Head Office : Al Meydan
+                                                    Street, KML
+                                                    Business Center, Showroom
+                                                    #4,
+                                                    Al Quoz-DUBAI <br>
+                                                    <!-- Head Office: Al Meydan Street, KML Business Center, Showroom #4,
+                                            Al Quoz-DUBAI -->
+                                                </li>
+                                                <li><strong>Email
+                                                        Address</strong>
+                                                    <br><a
+                                                        href="mailto:info.ad@black-out.ae">info.ad@black-out.ae</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="column col-lg-5 col-md-12 col-sm-12">
+                                        <div class="footer-widget links-widget">
+                                            <div class="widget-content">
+                                                <div class="row clearfix">
+                                                    <div
+                                                        class="column col-6">
+                                                        <div
+                                                            class="widget-title">
+                                                            <h3>LINKS</h3>
+                                                        </div>
+                                                        <ul class="list">
+                                                            <li><a
+                                                                    href="../index.html">Home</a></li>
+
+                                                            <li><a
+                                                                    href="../faq.html">
+                                                                    Faq
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="../video-order.html">Request
+                                                                    Video
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="../contact.html">
+                                                                    Contact
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="../terms-conditions.html">
+                                                                    Trems &
+                                                                    Conditons
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="../disclaimer-and-liability.html">
+                                                                    Disclaimers
+                                                                    & Liability
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="../privacy-policy.html">
+                                                                    Privacy
+                                                                    Policy
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                    <div
+                                                        class="column col-6">
+                                                        <div
+                                                            class="widget-title">
+                                                            <h3>Rooms </h3>
+                                                        </div>
+                                                        <ul class="list">
+                                                            <li><a
+                                                                    href="torture.html">Torture
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="exorcism.html">
+                                                                    Exorticism</a></li>
+                                                            <li><a
+                                                                    href="chaos.html">
+                                                                    Chaos
+                                                                </a></li>
+                                                            <li><a
+                                                                    href="psychiatric.html">Psychiatric
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-bottom">
+                            <div class="outer-container">
+
+                                <div class="bottom-shape-box"><div
+                                        class="bg-shape"></div></div>
+
+                                <div class="auto-container">
+
+                                    <div class="scroll-to-top scroll-to-target"
+                                        data-target="html"><span
+                                            class="flaticon-up-arrow"></span></div>
+
+                                    <div class="row clearfix">
+
+                                        <div
+                                            class="column col-lg-6 col-md-12 col-sm-12">
+                                            <div class="copyright"><span
+                                                    class="logo-icon"></span>
+                                                &copy;
+                                                Copyrights 2024 <a
+                                                    href="#"
+                                                    style="color: #ffff;">GrafStudios</a>
+                                                -
+                                                All Rights Reserved</div>
+                                        </div>
+
+                                        <div
+                                            class="column col-lg-6 col-md-12 col-sm-12">
+                                            <div class="social-links">
+                                                <ul
+                                                    class="default-social-links">
+                                                    <li><a href="#"><span
+                                                                class="fab fa-twitter"></span></a></li>
+                                                    <li><a href="#"><span
+                                                                class="fab fa-facebook-square"></span></a></li>
+                                                    <li><a href="#"><span
+                                                                class="fab fa-pinterest-p"></span></a></li>
+                                                    <li><a href="#"><span
+                                                                class="fab fa-instagram"></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </footer>
+
+                </div>
+
+                <div class="scroll-to-top scroll-to-target"
+                    data-target="html"><span
+                        class="flaticon-up-arrow"></span></div>
+
+                <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script> -->
+                <script src="../../js/jquery.js"></script>
+                <script src="../../js/popper.min.js"></script>
+                <script src="../../js/bootstrap.min.js"></script>
+                <script src="../../js/jquery-ui.js"></script>
+                <script src="../../js/jquery.fancybox.js"></script>
+                <script src="../../js/owl.js"></script>
+                <script src="../../js/appear.js"></script>
+                <script src="../../js/wow.js"></script>
+                <script src="../../js/scrollbar.js"></script>
+                <script src="../../js/script.js"></script>
+                <script src="../../js/scriptvideo.js"></script>
+
+                <script src="../../css/outcss/css/js/popper.min.js"></script>
+                <script src="../../css/outcss/css/js/bootstrap.min.js"></script>
+                <script
+                    src="../../css/outcss/css/js/isotope.pkgd.min.js"></script>
+                <script src="../../css/outcss/css/js/slick.min.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.meanmenu.min.js"></script>
+                <script src="../../css/outcss/css/js/wow.min.js"></script>
+                <script src="../../css/outcss/css/js/aos.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.lettering.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.textillate.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.odometer.min.js"></script>
+                <script src="../../css/outcss/css/js/jquery.appear.js"></script>
+                <script
+                    src="../../css/outcss/css/js/owl.carousel.min.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.countdown.min.js"></script>
+                <script
+                    src="../css/outcss/css/js/jquery.scrollUp.min.js"></script>
+                <script
+                    src="../../css/outcss/css/js/imagesloaded.pkgd.min.js"></script>
+                <script
+                    src="../../css/outcss/css/js/jquery.magnific-popup.min.js"></script>
+                <script src="../../css/outcss/css/js/plugins.js"></script>
+                <script src="../../css/outcss/css/js/main.js"></script>
+            </body>
+
+        </html>
